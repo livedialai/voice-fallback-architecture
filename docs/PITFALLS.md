@@ -39,5 +39,7 @@
 - Erst **melden, wenn gemessen**: Paketmitschnitt + beide Worker-Logs + Cloud-Raumliste.
 - Test immer aus der **Zielumgebung** (echter Anruf von außen), nicht „direkt am Server".
 - Kostenneutral heißt: lokaler SFU, **kein** Cloud-Job im Cloud-Worker-Log. Immer nachprüfen.
+- Der Proxy hängt per **SIP-Registrierung** am Anbieter (Auffrischung alle **300 s**). Nach einem
+  Maschinenwechsel dauert es bis zu 5 Minuten, bis Anrufe wieder ankommen — das ist kein Fehler.
 - Zugangsdaten (API-Keys, Redis-Passwort, SIP-Secrets) **nie** in Doku oder Repo — nur in
   `.env`-Dateien auf den Maschinen; Beispielwerte leer lassen.

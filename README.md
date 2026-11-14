@@ -81,6 +81,10 @@ flowchart LR
 
 ## 3. Normalweg (lokaler Betrieb, kostenneutral)
 
+> Anbindung ohne feste Ziel-IP: Der `sip-proxy` hängt per **SIP-Registrierung** am Anbieter
+> (Auffrischung alle 300 s). Deshalb ist ein Ersatz durch eine Maschine mit **anderer IP** ohne
+> Änderung beim Anbieter möglich — Details in [`docs/BETRIEB.md`](docs/BETRIEB.md).
+
 ```
  Anrufer
    │  wählt DID  (z. B. 0471 …)

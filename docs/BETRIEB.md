@@ -25,24 +25,31 @@ Warum das trägt:
   nicht dem Gespräch.
 - Läuft im Normalbetrieb monatelang unbeobachtet; ein Ausfall wäre ein Konfigurations- oder
   Maschinenproblem, kein Lastproblem.
+- Anbindung per SIP-Registrierung (alle 300 s erneuert), **kein fest verdrahtetes Adressziel beim
+  Anbieter** — und keine Benutzerverwaltung mit Personen, nur die Anschluss-Zugänge in der kleinen
+  lokalen Datenbank. Damit ist der Ersatz unabhängig von der IP.
 
 Ersatz, in dieser Reihenfolge:
 
-1. **Snapshot zurückrollen** (VM/Container) → gleiche IP, gleiche Konfiguration, der Carrier merkt nichts.
-2. **Vorgehaltener VPS**: Konfiguration + Datenbank einspielen, Dienst starten. Gleiche IP nötig —
-   sonst Schritt 3.
-3. **Notfallweg ohne Proxy**: die DID beim Carrier direkt auf `<CLOUD_SIP_HOST>` zeigen lassen.
+1. **Snapshot zurückrollen** (VM/Container) → Konfiguration **und** die kleine lokale Datenbank sind
+   wieder da, der Dienst registriert sich selbst. Vorteil: sonst nichts zu tun.
+2. **Vorgehaltener VPS**: Konfiguration + Datenbank einspielen, Dienst starten. **Eine andere IP ist
+   kein Hindernis** — der Proxy meldet sich beim Anbieter per Registrierung an (`uac_registrant`,
+   Auffrischung alle 300 s), das Anrufziel folgt dem Registrierungs-Contact. Es müssen **keine
+   Zugänge neu beantragt werden**: die Zugänge der Anschlüsse liegen in der Datenbank und wandern mit.
+3. **Notfallweg ohne Proxy**: die DID beim Anbieter direkt auf `<CLOUD_SIP_HOST>` zeigen lassen.
    Die Anrufe landen dann direkt im Cloud-Fallback; der Cloud-Trunk erlaubt die Carrier-IPs bereits.
 
 Dadurch bleibt das Ausfallfenster auf die Umschaltzeit begrenzt (Snapshot-Restore bzw. Reaktion des
 Carriers). Bewusst **kein** Keepalived/HA-Doppel: Aufwand und Fehlerfläche stünden in keinem
 Verhältnis zur Ausfallwahrscheinlichkeit.
 
-### Prüfliste nach einem Ersatz (nur bei geänderter IP nötig)
+### Prüfliste nach einem Ersatz (bei anderer IP)
 
-- **Carrier-Seite:** DID-Routing zeigt auf die neue Adresse.
+- **Anbieter:** nichts zu tun — das Anrufziel folgt der Registrierung (bis 300 s Wartezeit).
+- **Ersatzmaschine:** eigene Adresse in den Allow-Listen des Konfigfiles (eingehende Quellen, `OPTIONS`).
 - **Cloud:** neue Adresse in der Erlaubnisliste des Inbound-Trunks (`fallback-tools/create_cloud_sip.py`).
-- **Proxy:** eigene Adresse in den Allow-Listen des Konfigfiles (eingehende Quellen, `OPTIONS`).
+- **Registrierung prüfen:** Log des Dienstes — „registriert" bzw. Fehlschlag wird dort ausgegeben.
 - **Gegenprobe:** `bash fallback-tools/failover_test.sh` — erwartet: Anruf wird lokal angenommen;
   `media-node` kurz stoppen → **derselbe** Anruf läuft über die Cloud (`200 OK`).
 
