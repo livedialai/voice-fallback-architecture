@@ -13,7 +13,13 @@ Maschinen werden hier **nur mit Rollennamen** bezeichnet (`sip-proxy`, `media-no
 
 ---
 
-## 1. Gesamtbild (grafisch)
+## 1. Gesamtbild (groß)
+
+![Gesamtbild der Architektur](docs/gesamtbild.png)
+
+- **Vektorfassung (beliebig vergrößerbar):** [`docs/gesamtbild.svg`](docs/gesamtbild.svg) — auf GitHub anklicken, zoomt ohne Qualitätsverlust
+- **Zum Selbst-Rendern/Skalieren:** [`docs/gesamtbild.html`](docs/gesamtbild.html) (im Browser öffnen, Zoom unbegrenzt)
+- PNG in 5200 × 3600 px (auch für Ausdruck/Präsentation)
 
 ```mermaid
 flowchart LR

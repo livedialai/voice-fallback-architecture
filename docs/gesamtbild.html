@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;background:#0b1220;}
+  svg{display:block}
+  text{font-family:'DejaVu Sans Mono','Liberation Mono',monospace;}
+</style></head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1800" viewBox="0 0 2600 1800">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#fbbf24"/></marker>
+    <marker id="av" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/></marker>
+  </defs>
+
+  <text x="80" y="70" font-size="46" font-weight="bold" fill="#f8fafc">Sprach-Agent: Anruf → lokaler SFU → Cloud-Fallback → Warmtransfer</text>
+  <text x="80" y="112" font-size="24" fill="#7f8ea3">Maschinen neutral benannt · Werte der laufenden Anlage: docs/ROLLEN.md</text>
+
+  <!-- ===== Pfeile (hinter den Kaesten) ===== -->
+  <g fill="none" stroke-width="3">
+    <path d="M420,270 L470,270" stroke="#94a3b8" marker-end="url(#a)"/>
+    <path d="M1010,270 L1080,270" stroke="#94a3b8" marker-end="url(#a)"/>
+    <path d="M1200,390 C1200,450 500,420 420,470" stroke="#34d399" marker-end="url(#ag)"/>
+    <path d="M1800,390 C1850,440 1760,440 1740,470" stroke="#fbbf24" stroke-dasharray="12 7" marker-end="url(#aa)"/>
+    <path d="M550,760 L550,880" stroke="#38bdf8" marker-end="url(#ab)"/>
+    <path d="M1600,760 L1600,880" stroke="#fbbf24" stroke-dasharray="12 7" marker-end="url(#aa)"/>
+    <path d="M550,1140 L550,1260" stroke="#a78bfa" marker-end="url(#av)"/>
+    <path d="M1600,1140 C1600,1230 1150,1250 1130,1320" stroke="#fbbf24" stroke-dasharray="12 7" marker-end="url(#aa)"/>
+    <path d="M1320,1375 L1420,1375" stroke="#a78bfa" marker-end="url(#av)"/>
+  </g>
+
+  <!-- ===== Pfeil-Beschriftungen ===== -->
+  <g font-size="17" fill="#cbd5e1">
+    <text x="425" y="258">Anruf</text>
+    <text x="1015" y="258">INVITE</text>
+    <text x="430" y="450" fill="#34d399">prio1 — jeder Anruf geht ZUERST hierhin, kostenneutral</text>
+    <text x="1330" y="450" fill="#fbbf24">prio2 — nur bei 408 / 5xx</text>
+    <text x="565" y="822" fill="#38bdf8">WebRTC in den Raum</text>
+    <text x="1615" y="822" fill="#fbbf24">Cloud-Raum · gleicher Agent</text>
+    <text x="565" y="1200" fill="#a78bfa">Tool verbinden()</text>
+    <text x="1300" y="1195" fill="#fbbf24">nur wenn Fallback laeuft</text>
+    <text x="1268" y="1360" fill="#a78bfa">Briefing +</text>
+    <text x="1268" y="1382" fill="#a78bfa">Durchstellung</text>
+  </g>
+
+  <!-- ===== Kaesten ===== -->
+  <g stroke-width="2.5" fill="none">
+    <rect x="80" y="210" width="340" height="120" rx="10" stroke="#94a3b8" stroke-dasharray="10 6" fill="#1e293b" fill-opacity="0.55"/>
+    <rect x="470" y="210" width="540" height="120" rx="10" stroke="#94a3b8" stroke-dasharray="10 6" fill="#1e293b" fill-opacity="0.55"/>
+    <rect x="1080" y="190" width="1000" height="200" rx="10" stroke="#22d3ee" stroke-dasharray="10 6" fill="#083344" fill-opacity="0.45"/>
+    <rect x="80" y="470" width="940" height="290" rx="10" stroke="#34d399" stroke-dasharray="10 6" fill="#064e3b" fill-opacity="0.45"/>
+    <rect x="1100" y="470" width="1020" height="290" rx="10" stroke="#fbbf24" stroke-dasharray="10 6" fill="#78350f" fill-opacity="0.35"/>
+    <rect x="80" y="880" width="940" height="260" rx="10" stroke="#38bdf8" stroke-dasharray="10 6" fill="#0c4a6e" fill-opacity="0.45"/>
+    <rect x="1100" y="880" width="1020" height="260" rx="10" stroke="#fbbf24" stroke-dasharray="10 6" fill="#78350f" fill-opacity="0.35"/>
+    <rect x="80" y="1260" width="1180" height="230" rx="10" stroke="#a78bfa" stroke-dasharray="10 6" fill="#4c1d95" fill-opacity="0.4"/>
+    <rect x="1420" y="1260" width="700" height="230" rx="10" stroke="#94a3b8" stroke-dasharray="10 6" fill="#1e293b" fill-opacity="0.55"/>
+    <rect x="80" y="1580" width="2040" height="170" rx="10" stroke="#334155" fill="#0f172a"/>
+  </g>
+
+  <!-- ===== Ueberschriften in den Kaesten ===== -->
+  <g font-size="26" font-weight="bold" fill="#f1f5f9">
+    <text x="105" y="260">Anrufer</text>
+    <text x="495" y="260">carrier · SIP-Trunk</text>
+    <text x="1105" y="240">sip-proxy · OpenSIPS</text>
+    <text x="105" y="520">media-node · LiveKit SFU + SIP-Bridge</text>
+    <text x="1125" y="520">LiveKit Cloud · Fallback</text>
+    <text x="105" y="930">worker-node · Agent-Container LOKAL</text>
+    <text x="1125" y="930">worker-node · Agent-Container CLOUD</text>
+    <text x="105" y="1310">transfer-node · Transfer-Controller + LLM-Briefing</text>
+    <text x="1445" y="1310">Mensch · Marktleiter</text>
+  </g>
+
+  <!-- ===== Detailzeilen ===== -->
+  <g font-size="18" fill="#cbd5e1">
+    <text x="105" y="296">spricht mit dem Agenten</text>
+
+    <text x="495" y="296">DID 047195464009</text>
+    <text x="495" y="322">Formate 0049… , 49… , +49…</text>
+
+    <text x="1105" y="278">udp/5070 — nimmt Anrufe an, nur Allow-List (Carrier + eigene IPs)</text>
+    <text x="1105" y="308">prio1 → media-node:5070   immer zuerst</text>
+    <text x="1105" y="338">prio2 → bei 408 / 5xx: failure_route[sfu_down] → Cloud</text>
+    <text x="1105" y="368">der Proxy ist die einzige Stelle, die umschaltet</text>
+
+    <text x="105" y="558">systemd: livekit + livekit-sip</text>
+    <text x="105" y="586">Ports: tcp/7880 (API/WS) · udp/5070 (SIP-IN) · udp/7882 (RTC)</text>
+    <text x="105" y="614">nimmt den SIP-Anruf an, legt Raum edeka_&lt;anrufer&gt;_&lt;rand&gt; an</text>
+    <text x="105" y="642">Bridge-Config: /etc/livekit/sip.yaml</text>
+    <text x="105" y="670">Ausfall ⇒ keine 200 OK ⇒ Proxy schaltet auf Cloud um</text>
+
+    <text x="1125" y="558">SIP-Host &lt;projekt&gt;.sip.livekit.cloud · Edge 161.115.161.120:5060</text>
+    <text x="1125" y="586">Inbound-Trunk ST_UHhA23tSULKM (numbers: [] = alle Nummern)</text>
+    <text x="1125" y="614">allowed: Proxy-/Carrier-IPs · Dispatch-Rule SDR_GLVzYnJmi6R9</text>
+    <text x="1125" y="642">Rule → agent_name edeka-agent · room_prefix edeka_</text>
+    <text x="1125" y="670">ohne agents-Eintrag in der Rule: nur Freizeichen, kein Agent!</text>
+    <text x="1125" y="698">Kosten entstehen nur hier · im Normalbetrieb 0 Pakete hierhin</text>
+
+    <text x="105" y="968">LIVEKIT_URL=ws://&lt;media-node&gt;:7880</text>
+    <text x="105" y="996">LIVEKIT_AGENT_NAME=edeka-agent (muss zur Rule passen)</text>
+    <text x="105" y="1024">Opener als WAV — deterministisch, kein TTS beim Abheben</text>
+    <text x="105" y="1052">LLM-Wechsel = 1 Befehl: scripts/switch_llm.sh · kein Reasoning</text>
+    <text x="105" y="1080">Standardweg: 0 Cloud-Pakete</text>
+
+    <text x="1125" y="968">LIVEKIT_URL=wss://&lt;projekt&gt;.livekit.cloud</text>
+    <text x="1125" y="996">gleicher Code (worker/agent.js), gleicher Agent-Name</text>
+    <text x="1125" y="1024">braucht Root-CAs im Container, sonst TLS-Fehler beim Start</text>
+    <text x="1125" y="1052">springt nur an, wenn der lokale SFU weg ist</text>
+
+    <text x="105" y="1350">HTTP :9101 POST /v1/transfer — Parameter: grund + rufnummer</text>
+    <text x="105" y="1378">legt den Anrufer auf Wartemusik, ruft das Ziel per SIP über media-node an</text>
+    <text x="105" y="1406">LLM formuliert das Briefing aus dem ECHTEN Gespraech (thinking disabled)</text>
+    <text x="105" y="1434">durchstellen() erst, wenn das Ziel wirklich geantwortet hat</text>
+    <text x="105" y="1462">Ablauf + Fallstricke: docs/WARMTRANSFER.md</text>
+
+    <text x="1445" y="1350">bekommt das Briefing, kann Rueckfragen stellen</text>
+    <text x="1445" y="1378">danach sprechen Anrufer und Mensch direkt</text>
+    <text x="1445" y="1406">kein stummer Transfer</text>
+  </g>
+
+  <!-- ===== Legende ===== -->
+  <g font-size="18" fill="#cbd5e1">
+    <text x="105" y="1625" font-size="24" font-weight="bold" fill="#f8fafc">Legende</text>
+    <path d="M105,1665 L185,1665" stroke="#34d399" stroke-width="4" marker-end="url(#ag)"/>
+    <text x="200" y="1672">Normalweg — lokaler SFU, kostenneutral (Standard)</text>
+    <path d="M900,1665 L980,1665" stroke="#fbbf24" stroke-width="4" stroke-dasharray="12 7" marker-end="url(#aa)"/>
+    <text x="995" y="1672">Cloud-Fallback — nur bei Ausfall des lokalen SFU</text>
+    <path d="M1740,1665 L1820,1665" stroke="#a78bfa" stroke-width="4" marker-end="url(#av)"/>
+    <text x="1835" y="1672">Warmtransfer</text>
+    <text x="105" y="1710">gestrichelte Kaesten = Maschinen/Dienste · neutrale Rollennamen · Zugangsdaten stehen NICHT im Repo</text>
+  </g>
+</svg>
+</body></html>
