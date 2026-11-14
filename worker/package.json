@@ -1,0 +1,25 @@
+{
+  "name": "node-cascade-worker",
+  "version": "1.0.0",
+  "description": "LiveKit Agents Node-Cascade-Worker: Deepgram STT + OpenAI-kompatibles LLM + Inworld TTS (kein Realtime-Modell)",
+  "type": "module",
+  "main": "agent.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node agent.js dev",
+    "start": "node agent.js start",
+    "metrics": "python3 scripts/worker_metrics.py"
+  },
+  "dependencies": {
+    "@livekit/agents": "1.9.5",
+    "@livekit/agents-plugin-deepgram": "1.9.5",
+    "@livekit/agents-plugin-inworld": "1.9.5",
+    "@livekit/agents-plugin-openai": "1.9.5",
+    "@livekit/agents-plugin-silero": "1.9.5",
+    "@livekit/rtc-node": "^1.2.2",
+    "dotenv": "^18.0.10",
+    "zod": "^3.23.8"
+  }
+}

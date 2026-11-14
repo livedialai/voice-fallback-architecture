@@ -1,0 +1,14 @@
+INVITE -> 161.115.161.120:5060  (To=004947195464009)
+  <- SIP/2.0 100 Processing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 200 OK
+  -> ACK gesendet: CLOUD hat den Anruf ANGENOMMEN
+Antwortcodes: ['100', '180', '180', '200']
+=== Cloud-Worker (Testkiste): Job + Begruessung fuer diesen Anruf? ===
+JOB-ROOM edeka__015112345678_YpoUmnz8PpUQ
+LOCAL-TRACKS KEINE
+LOCAL-TRACKS TR_AMCtEqBVTcaS43:roomio_audio
+AGENT-SAGTE "[\"Guten Tag! Hier ist Nadine vom Edeka Markt Bremerhaven. Was darf ich fuer Sie tun?\"]"
+LOCAL-TRACKS TR_AMCtEqBVTcaS43:roomio_audio
+BYE gesendet

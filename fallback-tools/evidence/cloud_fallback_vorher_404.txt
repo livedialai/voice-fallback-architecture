@@ -1,0 +1,40 @@
+INVITE -> 161.115.161.120:5060  (To=004947195464009)
+  <- SIP/2.0 100 Processing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+  <- SIP/2.0 180 Ringing
+Antwortcodes: ['100', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180', '180']
+=== Cloud-Worker (Testkiste): Job + Begruessung fuer diesen Anruf? ===
+{"level":50,"time":1794665400844,"pid":35,"hostname":"a351bd0e2b39","pid":35,"jobID":"AJ_beySjLkDRHzN","room_id":"RM_VCvEX447ssjK","agent_name":"edeka-agent","code.file.path":"/app/node_modules/@livekit/agents/dist/job_l
+{"level":50,"time":1794665416852,"pid":52,"hostname":"a351bd0e2b39","pid":52,"jobID":"AJ_beySjLkDRHzN","room_id":"RM_VCvEX447ssjK","agent_name":"edeka-agent","code.file.path":"/app/node_modules/@livekit/agents/dist/job_l
+{"level":50,"time":1794665454845,"pid":69,"hostname":"a351bd0e2b39","pid":69,"jobID":"AJ_MATCdVBgQW76","room_id":"RM_B3HmhLBQjpDx","agent_name":"edeka-agent","code.file.path":"/app/node_modules/@livekit/agents/dist/job_l
+{"level":50,"time":1794665470920,"pid":86,"hostname":"a351bd0e2b39","pid":86,"jobID":"AJ_MATCdVBgQW76","room_id":"RM_B3HmhLBQjpDx","agent_name":"edeka-agent","code.file.path":"/app/node_modules/@livekit/agents/dist/job_l
+BYE gesendet

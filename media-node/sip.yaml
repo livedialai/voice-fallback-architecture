@@ -1,0 +1,17 @@
+# LiveKit SIP-Bridge — media-node — Vorlage (Werte ersetzen)
+# Dienst: livekit-sip (systemd). Nimmt SIP-Anrufe an und setzt sie als Teilnehmer in einen Raum.
+redis:
+  address: "127.0.0.1:6379"
+  password: "<REDIS_PASS>"
+
+api_key: "<LIVEKIT_API_KEY>"        # derselbe Key wie in der SFU-Config
+api_secret: "<LIVEKIT_API_SECRET>"
+ws_url: "ws://127.0.0.1:7880"       # lokale SFU
+
+sip_port: 5070                      # SIP-Eingang: hierher zeigt der sip-proxy (prio1)
+sip_port_listen: 5070
+use_external_ip: true
+external_ip: "<MEDIA_NODE_IP>"      # oeffentliche IP dieses Rechners (fuer SDP/Contact)
+
+logging:
+  level: info

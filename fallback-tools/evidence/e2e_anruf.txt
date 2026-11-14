@@ -1,0 +1,6 @@
+INVITE -> 212.87.214.201:5070  (To=004947195464009)
+  <- SIP/2.0 100 Giving it a try
+Antwortcodes: ['100']
+=== Cloud-Worker (Testkiste): Job + Begruessung fuer diesen Anruf? ===
+(keine Zeilen)
+BYE gesendet

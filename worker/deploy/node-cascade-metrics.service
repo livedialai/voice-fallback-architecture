@@ -1,0 +1,18 @@
+[Unit]
+Description=CPU/RAM-Dauerlogging fuer den Node-Cascade-Worker (alle 10 s)
+Documentation=https://github.com/livedialai/node-cascade-worker
+After=node-cascade.service
+Wants=node-cascade.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/node-cascade/scripts/worker_metrics.py --unit node-cascade.service --interval 10 --csv /var/log/node-cascade-metrics.csv
+Restart=always
+RestartSec=5
+Nice=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=node-cascade-metrics
+
+[Install]
+WantedBy=multi-user.target

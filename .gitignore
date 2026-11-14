@@ -1,0 +1,16 @@
+# Zugangsdaten und Laufzeitdaten gehoeren nicht ins Repo
+*.env
+.env.*
+!*.env.example
+worker-local.env
+worker-cloud.env
+*redentials*
+*token*
+*.key
+*.pem
+*.crt
+node_modules/
+__pycache__/
+*.pyc
+*.log
+/evidence/*.raw

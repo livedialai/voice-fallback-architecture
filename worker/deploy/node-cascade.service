@@ -1,0 +1,15 @@
+[Unit]
+Description=EDEKA Node-Cascade Worker (Deepgram STT + Melious LLM + Inworld TTS)
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/node-cascade
+EnvironmentFile=/opt/node-cascade/.env
+ExecStart=/usr/bin/node /opt/node-cascade/agent.js start
+Restart=always
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,20 @@
+[Unit]
+Description=Node-Cascade-Worker DEV (Hot-Reload, eigener Agent-Name)
+Documentation=https://github.com/livedialai/node-cascade-worker
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/node-cascade
+EnvironmentFile=/opt/node-cascade/.env
+# Eigener Agent-Name: DEV-Worker laeuft NEBEN dem Produktions-Worker,
+# ohne dass LiveKit Auftraege doppelt zustellt.
+Environment=LIVEKIT_AGENT_NAME=edeka-agent-dev
+ExecStart=/usr/bin/node /opt/node-cascade/agent.js dev
+Restart=always
+RestartSec=5
+User=root
+SyslogIdentifier=node-cascade-dev
+
+[Install]
+WantedBy=multi-user.target
