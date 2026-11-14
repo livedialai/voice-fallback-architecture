@@ -95,7 +95,7 @@ flowchart LR
    │  prio1: $du = sip:<media-node>:5070   +  t_on_failure("sfu_down")
    ▼
 ———————————————————————
-  media-node           SIP-Bridge → Raum  edeka_<caller>_<random>
+  media-node           SIP-Bridge → Raum  tenant_<caller>_<random>
 ———————————————————————
    │  WebRTC
    ▼

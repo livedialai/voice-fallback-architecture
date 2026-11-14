@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1800" viewBox="0 0 2600 1800">
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2600 1800">
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker>
@@ -84,19 +83,19 @@
 
     <text x="105" y="558">systemd: livekit + livekit-sip</text>
     <text x="105" y="586">Ports: tcp/7880 (API/WS) · udp/5070 (SIP-IN) · udp/7882 (RTC)</text>
-    <text x="105" y="614">nimmt den SIP-Anruf an, legt Raum edeka_&lt;anrufer&gt;_&lt;rand&gt; an</text>
+    <text x="105" y="614">nimmt den SIP-Anruf an, legt Raum tenant_&lt;anrufer&gt;_&lt;rand&gt; an</text>
     <text x="105" y="642">Bridge-Config: /etc/livekit/sip.yaml</text>
     <text x="105" y="670">Ausfall ⇒ keine 200 OK ⇒ Proxy schaltet auf Cloud um</text>
 
     <text x="1125" y="558">SIP-Host &lt;projekt&gt;.sip.livekit.cloud · Edge 161.115.161.120:5060</text>
     <text x="1125" y="586">Inbound-Trunk ST_UHhA23tSULKM (numbers: [] = alle Nummern)</text>
     <text x="1125" y="614">allowed: Proxy-/Carrier-IPs · Dispatch-Rule SDR_GLVzYnJmi6R9</text>
-    <text x="1125" y="642">Rule → agent_name edeka-agent · room_prefix edeka_</text>
+    <text x="1125" y="642">Rule → agent_name voice-agent · room_prefix tenant_</text>
     <text x="1125" y="670">ohne agents-Eintrag in der Rule: nur Freizeichen, kein Agent!</text>
     <text x="1125" y="698">Kosten entstehen nur hier · im Normalbetrieb 0 Pakete hierhin</text>
 
     <text x="105" y="968">LIVEKIT_URL=ws://&lt;media-node&gt;:7880</text>
-    <text x="105" y="996">LIVEKIT_AGENT_NAME=edeka-agent (muss zur Rule passen)</text>
+    <text x="105" y="996">LIVEKIT_AGENT_NAME=voice-agent (muss zur Rule passen)</text>
     <text x="105" y="1024">Opener als WAV — deterministisch, kein TTS beim Abheben</text>
     <text x="105" y="1052">LLM-Wechsel = 1 Befehl: scripts/switch_llm.sh · kein Reasoning</text>
     <text x="105" y="1080">Standardweg: 0 Cloud-Pakete</text>

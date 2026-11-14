@@ -19,8 +19,8 @@ export LIVEKIT_API_KEY="<KEY>"
 export LIVEKIT_API_SECRET="<SECRET>"
 export CLOUD_DIDS="004947195464009,4947195464009"
 export CLOUD_ALLOWED="<SIP_PROXY_IP>/32,<CARRIER_IP>/32"
-export CLOUD_AGENT="edeka-agent"
-export CLOUD_ROOM_PREFIX="edeka_"
+export CLOUD_AGENT="voice-agent"
+export CLOUD_ROOM_PREFIX="tenant_"
 ```
 
 Oder alles in eine env-Datei schreiben und `CLOUD_ENV=/pfad/dazu.env` setzen.
