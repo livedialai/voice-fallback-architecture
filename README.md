@@ -173,6 +173,7 @@ Details und die drei Fallstricke (Reasoning-Modelle, `generateReply` vs. `say`, 
 | `docs/REBUILD.md` | **Nachbau Schritt für Schritt** (Cloud-Objekte, Ports, Reihenfolge, Test) |
 | `docs/PITFALLS.md` | Gesammelte Stolperfallen (TLS/CA, Agent-Dispatch, DID-Formate, …) |
 | `docs/ROLLEN.md` | Rollenname → konkrete Werte einer laufenden Instanz |
+| `docs/BETRIEB.md` | Grenzen des Konzepts, akzeptiertes Risiko (`sip-proxy`), Ersatz-Prüfliste |
 | `sip-proxy/opensips.cfg` | Vollständige OpenSIPS-Konfiguration inkl. `failure_route` |
 | `sip-proxy/README.md` | Einbau, Logs, Test, Patch der Fallback-Zeile |
 | `media-node/` | LiveKit-SFU-Config + SIP-Bridge-Config (Zugangsdaten redigiert) |
