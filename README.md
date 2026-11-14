@@ -13,7 +13,24 @@ Maschinen werden hier **nur mit Rollennamen** bezeichnet (`sip-proxy`, `media-no
 
 ---
 
-## 1. Rollen (neutrale Namen)
+## 1. Gesamtbild (grafisch)
+
+```mermaid
+flowchart LR
+  C["carrier<br/>SIP-Trunk (DID)"] -->|INVITE| P["sip-proxy<br/>OpenSIPS udp/5070"]
+  P -->|"prio1 (immer zuerst)"| M["media-node<br/>LiveKit SFU + SIP-Bridge"]
+  P -.->|"prio2: 408/5xx -> Fallback"| LC["LiveKit Cloud<br/>SIP-Trunk + Dispatch-Rule"]
+  M --> W1["worker-node<br/>Agent-Container lokal"]
+  LC --> W2["worker-node<br/>Agent-Container Cloud"]
+  W1 --> X["transfer-node<br/>POST /v1/transfer"]
+  W2 --> X
+  X -->|"SIP out (ueber media-node)"| H["Mensch<br/>Marktleiter/Team"]
+  W1 -.->|"LLM-Briefing"| H
+```
+
+*(GitHub rendert das Bild; im Terminal ist die Textfassung unter Abschnitt 2 lesbar.)*
+
+## 2. Rollen (neutrale Namen)
 
 ```
 ———————————————————————————————————————————————————————————
@@ -56,7 +73,7 @@ Maschinen werden hier **nur mit Rollennamen** bezeichnet (`sip-proxy`, `media-no
 
 ---
 
-## 2. Normalweg (lokaler Betrieb, kostenneutral)
+## 3. Normalweg (lokaler Betrieb, kostenneutral)
 
 ```
  Anrufer
@@ -82,7 +99,7 @@ Maschinen werden hier **nur mit Rollennamen** bezeichnet (`sip-proxy`, `media-no
 ———————————————————————
 ```
 
-## 3. Fallback-Weg (lokaler SFU aus / kaputt)
+## 4. Fallback-Weg (lokaler SFU aus / kaputt)
 
 ```
   sip-proxy ──INVITE──▶ media-node:5070 ──408/5xx──▶ sip-proxy
@@ -109,7 +126,7 @@ Maschinen werden hier **nur mit Rollennamen** bezeichnet (`sip-proxy`, `media-no
 
 Wichtig: der **worker-node** ist bei beiden Wegen derselbe — nur der Container (und damit die `LIVEKIT_URL`) unterscheidet sich. Details: [`docs/FALLBACK.md`](docs/FALLBACK.md).
 
-## 4. Warmtransfer (Agent → Mensch)
+## 5. Warmtransfer (Agent → Mensch)
 
 ```
   Anrufer ──▶ Agent (worker-node)
@@ -140,7 +157,7 @@ Details und die drei Fallstricke (Reasoning-Modelle, `generateReply` vs. `say`, 
 
 ---
 
-## 5. Repo-Inhalt
+## 6. Repo-Inhalt
 
 | Pfad | Inhalt |
 |---|---|
@@ -158,7 +175,7 @@ Details und die drei Fallstricke (Reasoning-Modelle, `generateReply` vs. `say`, 
 | `fallback-tools/` | Skripte: Cloud-Trunk/Rule anlegen, Testanruf, Failover-Beweis, Worker-Start |
 | `fallback-tools/evidence/` | Rohbelege eines echten Fallover-Anrufs |
 
-## 6. Schnellstart (Kurzfassung)
+## 7. Schnellstart (Kurzfassung)
 
 1. `media-node` aufsetzen: LiveKit SFU + SIP-Bridge, Ports 7880/5070/7882 (siehe `media-node/README.md`).
 2. `worker-node`: Container mit `LIVEKIT_URL` = lokaler SFU starten (siehe `worker/README.md`).

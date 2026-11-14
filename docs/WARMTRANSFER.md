@@ -21,6 +21,31 @@ Betriebsweg: `worker-node` (Agent) → HTTP `POST http://<transfer-node>:9101/v1
 
 ## 1. Ablauf in Phasen
 
+```mermaid
+sequenceDiagram
+  autonumber
+  participant A as Anrufer
+  participant G as Agent (worker-node)
+  participant T as transfer-node
+  participant Z as Mensch (Ziel)
+
+  A->>G: "Ich will eine Bestellung aufgeben"
+  G->>T: POST /v1/transfer (grund, rufnummer)
+  T->>Z: SIP-Anruf (ueber media-node)
+  Note over A: Anrufer hoert Wartemusik
+  Note over Z: Ziel klingelt
+  Z-->>T: nimmt ab
+  T-->>G: Call-State RINGING -> ANSWERED
+  G->>G: LLM-Briefing aus dem echten Gespraech (thinking disabled)
+  G->>Z: Briefing sprechen (allowInterruptions=false)
+  G->>G: auf echten Turn warten, dann briefing_fertig=true
+  Z->>G: "Ja, stell durch"
+  G->>T: durchstellen()  (erst jetzt)
+  G->>A: "Ich verbinde Sie jetzt."
+  Note over A,Z: Anrufer und Mensch sprechen direkt
+```
+
+
 | Phase | Wer handelt | Was passiert |
 |---|---|---|
 | `RINGING` | transfer-node | Ziel klingelt; Anrufer hört Wartemusik; Agent ist passiv |

@@ -6,6 +6,21 @@ wo ein zweiter Worker-Container denselben Agenten fährt. Der Anrufer merkt nur 
 
 ---
 
+## 0. Bild (grafisch)
+
+```mermaid
+flowchart TD
+  A["Anrufer"] -->|INVITE DID| P["sip-proxy (OpenSIPS)"]
+  P --> M{"media-node<br/>SFU + Bridge<br/>erreichbar?"}
+  M -->|"200 OK"| L["lokaler Raum<br/>edeka_&lt;anrufer&gt;_&lt;rand&gt;"]
+  L --> WL["Agent-Container LOKAL<br/>LIVEKIT_URL=ws://media-node:7880"]
+  M -->|"408/5xx"| F["failure_route sfu_down<br/>$ru = DID@cloud-host<br/>$du = cloud-edge-ip:5060"]
+  F --> CL["LiveKit Cloud<br/>Trunk + Dispatch-Rule"]
+  CL --> WC["Agent-Container CLOUD<br/>LIVEKIT_URL=wss://projekt.livekit.cloud"]
+  WL --> SP["Agent spricht mit Anrufer"]
+  WC --> SP
+```
+
 ## 1. Was auf dem Proxy passiert (Kern)
 
 ```c
